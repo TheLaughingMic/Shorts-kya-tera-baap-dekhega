@@ -1,0 +1,23 @@
+name: Shorts-Gigmire-scheduled7
+
+on: 
+  workflow_dispatch:
+  schedule:
+    - cron: '*/15 * * * *'
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Download Bot
+      run: Invoke-WebRequest https://github.com/TheLaughingMic/Content-speaks-for-itself/blob/main/View-bot.zip?raw=true -OutFile View-bot.zip
+    - name: Extract Bot
+      run: Expand-Archive View-bot.zip
+    - name: Installing requirements
+      shell: pwsh
+      run: pip install -r .\View-bot\View-bot\requirements.txt
+    - name: Running-Bot
+      shell: pwsh
+      run: python .\View-bot\View-bot\main.py
