@@ -1,4 +1,4 @@
-name: Shorts-Gigmire-scheduled
+name: Shorts-Gigmire-scheduled3
 
 on: 
   workflow_dispatch:
